@@ -20,19 +20,18 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased bg-gray-50">
+<body class="antialiased bg-gray-50 ">
     <div class="container w-10/12 m-auto">
         <header>
-            <nav class="bg-white border-gray-200 px-2 sm:px-4 py-7 rounded ">
+            <nav class="bg-white border-gray-200 px-2 sm:px-4 py-7 rounded text-xl">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
                     <a href="https://flowbite.com/" class="flex items-center">
                         <img src="{{ asset('images/favs/apple-touch-icon.png') }}" class="h-6 mr-3 sm:h-9"
                             alt="Flowbite Logo" />
-                        <span class="self-center text-xl font-semibold whitespace-nowrap ">Shaking
-                            machine</span>
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap ">Shaking machine</span>
                     </a>
                     <button data-collapse-toggle="navbar-default" type="button"
-                        class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+                        class="inline-flex items-center p-2 ml-3 text-base text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
                         aria-controls="navbar-default" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -44,7 +43,7 @@
                     </button>
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul
-                            class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+                            class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0 md:bg-white ">
                             <li>
                                 <a href="/"
                                     class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 "
@@ -68,7 +67,7 @@
                             </li>
                             <li>
                                 <a href="/register"
-                                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Rgister</a>
+                                    class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Register</a>
                             </li>
                         </ul>
                     </div>
@@ -77,15 +76,72 @@
             </nav>
         </header>
         {{-- hero section --}}
-        <section id="hero" class="w-full h-screen">
-            <h1>Shaking Machine</h1>
-            <p>Upload and buy 3D models with virtual currency</p>
-            <a href="#products" class="cta">Explore our products</a>
+        <section id="hero" class="w-full h-screen flex flex-row">
+            <div class="w-2/4 flex flex-col">
+                <h1 class="text-xl text-blue-600 my-1 font-semibold">Shaking Machine</h1>
+                <p class="text-[70px] font-bold"><span class="text-blue-700">Upload</span> and <span
+                        class="text-blue-700 pb-6"> buy</span> 3D models with
+                    virtual
+                    currency</p>
+                <a href="#products"
+                    class="w-52 cta border py-3 px-6 bg-blue-700 mt-8 text-gray-50 rounded-sm hover:bg-blue-800 duration-150">Explore
+                    our products</a>
+
+                <blockquote class="text-xl font-medium italic p-4 bg-gray-200 rounded-lg mt-4">Design without limits,
+                    buy
+                    without boundaries with our virtual currency for 3D models!</blockquote>
+
+            </div>
+            <div class="w-2/4">
+                <img src="{{ asset('images/Upload and buy 3D models with virtual currencyv1.png') }}" alt="upload img"
+                    class="rounded-tl-[80px] rounded-br-[80px]">
+            </div>
+
         </section>
         <section id="about" class="w-full h-screen">
-            <h2>About Us</h2>
-            <p>We are a company that specializes in creating and selling 3D models. Our models are unique and can only
-                be purchased with virtual currency. </p>
+            <h2 class="text-xl text-blue-600 mb-6 font-semibold">About Us</h2>
+            <div class="flex flex-row">
+
+
+                <div class="w-2/4w-2/4 flex flex-col">
+                    <img src="{{ asset('images/a company.png') }}" alt="about img"
+                        class="rounded-tl-[80px] rounded-br-[80px]">
+                </div>
+                <div class="w-2/4w-2/4 flex flex-wrap items-center">
+                    <p class="mx-4 ml-8 text-xl leading-10">We are a company that specializes in creating and selling 3D
+                        models.
+                        Our
+                        models are unique and
+                        can
+                        only be purchased with virtual currency. </p>
+                    {{-- get started button --}}
+                    <a href="#products"
+                        class="cta border py-3 px-6 bg-blue-700 mt-4 text-gray-50 rounded-sm hover:bg-blue-800 duration-150 ml-[30%]">Get
+                        Started</a>
+                </div>
+            </div>
+        </section>
+        {{-- start using section --}}
+        <section id="start-using" class="w-full h-screen">
+            <h2 class="text-xl text-blue-600 mb-6 font-semibold">Start Using Our Virtual Currency</h2>
+            <div class="flex flex-row">
+                <div class="w-2/4 flex">
+                    <img src="{{ asset('images/Start using our virtual currency.png') }}" alt="start using img"
+                        class="rounded-tl-[80px] rounded-br-[80px]">
+                </div>
+                <div class="w-2/4 flex
+                flex-wrap items-center">
+                    <p class="mx-4 ml-8 text-xl leading-10">Our virtual currency is easy to use. You can buy it with
+                        real
+                        money
+                        and
+                        use it to buy our 3D models. </p>
+                    {{-- get started button --}}
+                    <a href="#products"
+                        class="cta border py-3 px-6 bg-blue-700 mt-4 text-gray-50 rounded-sm hover:bg-blue-800 duration-150 ml-[30%]">Get
+                        Started</a>
+                </div>
+            </div>
         </section>
         <section id="products" class="w-full h-screen">
             <h2>Our Products</h2>

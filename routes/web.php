@@ -21,6 +21,14 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+// product requires to be atheenticated and verified
+Route::get('/products', function () {
+    return view('products');
+})->middleware(['auth', 'verified'])->name('products');
+// wallet requires to be atheenticated and verified
+Route::get('/wallet', function () {
+    return view('wallet');
+})->middleware(['auth', 'verified'])->name('wallet');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +36,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
