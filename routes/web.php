@@ -29,6 +29,10 @@ Route::get('/products', function () {
 Route::get('/wallet', function () {
     return view('wallet');
 })->middleware(['auth', 'verified'])->name('wallet');
+// admin routes
+Route::get('/admin', function () {
+    return view('admin/index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
