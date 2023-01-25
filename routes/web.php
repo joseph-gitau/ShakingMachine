@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,19 @@ Route::middleware(['auth', 'admin'])->group(function () {
         return view('admin/index');
     });
 });
+// users from admin panel
+Route::middleware(['auth', 'admin'])->group(function () {
+    /* Route::get('admin/users', function () {
+        return view('admin/users');
+    })->name('admin.users'); */
+    Route::get('admin/users', [
+        UserController::class, 'index'
+    ])->name('admin.users');
+});
+Route::middleware(['auth', 'admin'])->group(
+    function () {
+        Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    }
+);
 
 require __DIR__ . '/auth.php';
