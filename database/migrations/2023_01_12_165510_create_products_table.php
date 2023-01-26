@@ -13,12 +13,26 @@ class CreateProductsTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            // auther id
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            // product name
             $table->string('name');
-            $table->text('detail');
+            // product description
+            $table->string('description');
+            // product price
+            $table->string('price');
+            // product image
+            $table->string('image');
+            // product category
+            $table->string('category');
+            // product unique serial id
+            $table->string('serial_id')->unique();
             $table->timestamps();
         });
     }

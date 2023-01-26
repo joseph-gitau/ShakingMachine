@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductmdController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -60,5 +61,26 @@ Route::middleware(['auth', 'admin'])->group(
         Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     }
 );
+// admin.admins
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/admins', [
+        UserController::class, 'admins'
+    ])->name('admin.admins');
+});
+// admin.products
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/products', [
+        ProductmdController::class, 'index'
+    ])->name('admin.products');
+    // admin.products.create
+    Route::get('admin/products/create', [
+        ProductmdController::class, 'create'
+    ])->name('admin.products.create');
+    // admin.products.store
+    Route::POST('admin/products/store', [
+        ProductmdController::class, 'store'
+    ])->name('admin.products.store');
+});
+
 
 require __DIR__ . '/auth.php';

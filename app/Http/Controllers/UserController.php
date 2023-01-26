@@ -27,4 +27,12 @@ class UserController extends Controller
         // redirect to admin/users
         return redirect()->route('admin.users');
     }
+    // admins method
+    public function admins()
+    {
+        // get all users from database with isAdmin = 1 with pagination
+        $users = User::where('isAdmin', 1)->paginate(10);
+        // return with users = $users
+        return view('admin/admins', ['users' => $users]);
+    }
 }
