@@ -7,6 +7,11 @@
         <div class="w-3/4">
             {{-- loop and display $user with crud operations in a table --}}
             <div class="content m-auto ml-6">
+                @if (session('message'))
+                    <div class="bg-green-500 text-white p-4">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <div class="title">
                     <h1 class="text-xl text-center font-bold my-4">Shaking Machine Users</h1>
                 </div>

@@ -20,6 +20,10 @@ class UserController extends Controller
     {
         // delete user
         $user->delete();
+
+        // store the success message in the session
+        session()->flash('message', 'User deleted successfully.');
+
         // redirect to admin/users
         return redirect()->route('admin.users');
     }
