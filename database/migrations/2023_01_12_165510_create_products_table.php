@@ -33,6 +33,8 @@ class CreateProductsTable extends Migration
             $table->string('category');
             // product unique serial id
             $table->string('serial_id')->unique();
+            // product status
+            $table->string('status')->default('available');
             $table->timestamps();
         });
     }

@@ -75,7 +75,8 @@ class ProductmdController extends Controller
         // upload the image to the storage folder
         // filename = image_name + product_name + image_extension
         $filename = $image_name . '-' . $name . '.' . $image_extension;
-        $image->storeAs('public/images/products/', $filename);
+        $image->storeAs('public/images/products', $filename);
+        // dd($image);
 
         // save the product to the database
         $product = new Product();

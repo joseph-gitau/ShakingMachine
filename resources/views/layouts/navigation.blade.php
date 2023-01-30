@@ -159,6 +159,10 @@ if($isAdmin){
                     <x-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
                         {{ __('Wallet') }}
                     </x-nav-link>
+                    {{-- transaction history --}}
+                    <x-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')">
+                        {{ __('Transactions') }}
+                    </x-nav-link>
                 </div>
             </div>
 

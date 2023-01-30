@@ -4,6 +4,8 @@ use App\Http\Controllers\ProductmdController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Products;
+use App\Http\Controllers\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +22,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [
+    Dashboard::class, 'index'
+])->middleware(['auth', 'verified'])->name('dashboard');
 // product requires to be atheenticated and verified
-Route::get('/products', function () {
+Route::get('/products', [
+    Products::class, 'index'
+])->middleware(['auth', 'verified'])->name('products');
+/* Route::get('/products', function () {
     return view('products');
-})->middleware(['auth', 'verified'])->name('products');
+})->middleware(['auth', 'verified'])->name('products'); */
+// product details
+Route::get('/products-view/{id}', [
+    Products::class, 'show'
+])->middleware(['auth', 'verified'])->name('products-view');
 // wallet requires to be atheenticated and verified
 Route::get('/wallet', function () {
     return view('wallet');
 })->middleware(['auth', 'verified'])->name('wallet');
+// transactions
+Route::get('/transactions', function () {
+    return view('transactions');
+})->middleware(['auth', 'verified'])->name('transactions');
 // admin routes
 Route::get('/admin', function () {
     return view('admin/index');
@@ -81,6 +94,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ProductmdController::class, 'store'
     ])->name('admin.products.store');
 });
-
 
 require __DIR__ . '/auth.php';
