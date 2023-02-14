@@ -17,7 +17,9 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-b63392c0.css') }}">
+
 </head>
 
 <body class="antialiased bg-gray-50 ">
